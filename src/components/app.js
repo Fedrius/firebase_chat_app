@@ -1,12 +1,15 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import Chat from './chat'
-import Lobby from './lobby'
+import { Route } from 'react-router-dom';
+import Lobby from './lobby';
+import ChatRoom from './chatRoom';
 
 const App = () => (
     <div className='container'>
         <h1 className='center-align'>Fire Chatty Chat</h1>
-        <Lobby/>
+        <Route exact path='/' component={Lobby}/>
+        {/* :roomId means the string will be changed for every unique room*/}
+        <Route path='/room/:roomId/log/:logId' component={ChatRoom}/>
     </div>
 );
 
