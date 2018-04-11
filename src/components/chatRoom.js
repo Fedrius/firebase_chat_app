@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getRoomData, getChatLog, sendNewMessage } from "../actions";
 import { Link } from 'react-router-dom';
 import { db } from "../firebase";
+import RaisedButton from 'material-ui/RaisedButton';
 
 class ChatRoom extends Component {
     constructor(props){
@@ -47,7 +48,7 @@ class ChatRoom extends Component {
 
         //reverse will map it from last index first
         const msgs = Object.keys(chatLog).reverse().map((key) => {
-            return <li key={key} className='collection-item'>{chatLog[key]}</li>
+            return <li style={{color: 'black'}} key={key} className='collection-item'>{chatLog[key]}</li>
         });
 
         return (
@@ -58,7 +59,7 @@ class ChatRoom extends Component {
                 <form>
                     <label>Enter msg:</label>
                     <input type='text' value={this.state.message} onChange={event => this.setState({message: event.target.value})}/>
-                    <button onClick={this.sendMessage.bind(this)}>Send</button>
+                    <RaisedButton label="Send" onClick={this.sendMessage.bind(this)} />
                 </form>
                 <ul className='collection'>
                     {msgs}
