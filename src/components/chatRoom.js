@@ -53,7 +53,7 @@ class ChatRoom extends Component {
 
         return (
             <div>
-                <Link to='/'>Back to Lobby</Link>
+                <Link to='/'>Return to Lobby</Link>
                 <h3>{name ? name : 'Loading...'}</h3>
 
                 <form>
